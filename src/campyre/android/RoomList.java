@@ -1,6 +1,7 @@
 package campyre.android;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -101,9 +102,10 @@ public class RoomList extends ListActivity {
     }
     
     public void onLoadRooms(ArrayList<Room> rooms, CampfireException exception) {
-    	if (exception == null && rooms != null)
+    	if (exception == null && rooms != null) {
     		this.rooms = rooms;
-    	else {
+    		Collections.sort(this.rooms);
+    	} else {
     		this.rooms = new ArrayList<Room>();
     		this.error = true;
 			Utils.alert(this, exception);

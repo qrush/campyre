@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Room {
+public class Room implements Comparable<Room> {
 	public String id, name;
 	public boolean full = false;
 	public Campfire campfire;
@@ -109,4 +109,8 @@ public class Room {
 	public String toString() {
 		return name;
 	}
+	
+    public int compareTo(Room room) {
+        return (this.name.compareTo(room.name));
+    }
 }
